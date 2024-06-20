@@ -51,7 +51,7 @@ const TripDestination = sequelize.define('TripDestination', {
   // Sync the models with the database
   (async () => {
     try {
-      await sequelize.sync({force: true});
+      await sequelize.sync();
       console.log("TripDestination synchronized successfully");
     } catch (error) {
       console.error("Error synchronizing database:", error);

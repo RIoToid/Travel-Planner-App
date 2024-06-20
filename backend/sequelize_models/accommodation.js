@@ -51,7 +51,7 @@ const Accommodation = sequelize.define('Accommodation', {
   // Sync the model with the database
 (async () => {
     try {
-      await sequelize.sync({force: true});
+      await sequelize.sync();
       console.log("Accommodation table created successfully");
     } catch (error) {
       console.error("Error syncing User model:", error);

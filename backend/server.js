@@ -17,7 +17,7 @@ app.use(bodyParser.json()); // Parse incoming JSON data
 // Connect to database (consider error handling)
 sequelize.sync().then(() => {
   console.log('Database connection successful');
-  app.listen(process.env.SERVER_PORT, () => {
+  app.listen(process.env.EXPRESS_SERVER_PORT, () => {
     console.log('Server listening on port 3000');
   });
 }).catch(err => {

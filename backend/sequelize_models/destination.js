@@ -34,7 +34,7 @@ const Destination = sequelize.define('Destination', {
   // Sync the model with the database
 (async () => {
   try {
-    await sequelize.sync({force: true});
+    await sequelize.sync();
     console.log("Destination table created successfully");
   } catch (error) {
     console.error("Error syncing Destination model:", error);
