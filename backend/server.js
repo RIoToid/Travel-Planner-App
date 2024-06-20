@@ -3,11 +3,14 @@ const sequelize = require('./db');
 const tripRouter = require('./routes/trips'); // Import trip routes (explained later)
 const userRouter = require('./routes/users'); 
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Load env variables from .env file
 require("dotenv").config();
 
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.json()); // Parse incoming JSON data
 
