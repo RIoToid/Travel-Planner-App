@@ -15,18 +15,10 @@ const Destination = sequelize.define('Destination', {
     },
     country: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: true
-    },
-    latitude: {
-      type: DataTypes.FLOAT,
-      allowNull: true
-    },
-    longitude: {
-      type: DataTypes.FLOAT,
       allowNull: true
     },
     imageUrl: {
@@ -42,10 +34,10 @@ const Destination = sequelize.define('Destination', {
   // Sync the model with the database
 (async () => {
   try {
-    await sequelize.sync();
+    await sequelize.sync({force: true});
     console.log("Destination table created successfully");
   } catch (error) {
-    console.error("Error syncing User model:", error);
+    console.error("Error syncing Destination model:", error);
   }
 })();
   

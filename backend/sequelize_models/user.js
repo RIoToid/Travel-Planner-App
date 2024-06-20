@@ -42,7 +42,7 @@ const User = sequelize.define('User', {
 // Sync the model with the database
 (async () => {
   try {
-    await sequelize.sync();
+    await sequelize.sync({force: true});
     console.log("User table created successfully");
   } catch (error) {
     console.error("Error syncing User model:", error);

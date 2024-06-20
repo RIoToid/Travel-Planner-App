@@ -40,7 +40,7 @@ Trip.belongsToMany(User, { through: UserTrip });
   // Sync the model with the database
   (async () => {
     try {
-      await sequelize.sync();
+      await sequelize.sync({force: true});
       console.log("UserTrip table created successfully");
     } catch (error) {
       console.error("Error syncing User model:", error);

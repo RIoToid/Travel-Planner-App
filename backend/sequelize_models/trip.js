@@ -41,7 +41,7 @@ const Trip = sequelize.define('Trip', {
     // Sync the model with the database
 (async () => {
     try {
-      await sequelize.sync();
+      await sequelize.sync({force: true});
       console.log("Trip table created successfully");
     } catch (error) {
       console.error("Error syncing User model:", error);
