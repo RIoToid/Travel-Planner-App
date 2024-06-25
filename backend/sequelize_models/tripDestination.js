@@ -26,6 +26,18 @@ const TripDestination = sequelize.define('TripDestination', {
         model: Destination,
         key: 'id'
       }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    transportationMode: {
+      type: DataTypes.ENUM('flight', 'train', 'bus', 'car', 'boat', 'walking'),
+      allowNull: false
+    },
+    transportationCost: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true
     }
   }, {
     // Disable createdAt and updatedAt columns
@@ -40,7 +52,7 @@ const TripDestination = sequelize.define('TripDestination', {
   (async () => {
     try {
       await sequelize.sync();
-      console.log("Database synchronized successfully");
+      console.log("TripDestination synchronized successfully");
     } catch (error) {
       console.error("Error synchronizing database:", error);
     }

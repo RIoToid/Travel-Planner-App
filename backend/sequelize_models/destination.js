@@ -13,24 +13,12 @@ const Destination = sequelize.define('Destination', {
       allowNull: false,
       unique: true
     },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
     country: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: true
-    },
-    latitude: {
-      type: DataTypes.FLOAT,
-      allowNull: true
-    },
-    longitude: {
-      type: DataTypes.FLOAT,
       allowNull: true
     },
     imageUrl: {
@@ -42,5 +30,15 @@ const Destination = sequelize.define('Destination', {
     // Disable createdAt and updatedAt columns
   timestamps: false
   });
+
+  // Sync the model with the database
+(async () => {
+  try {
+    await sequelize.sync();
+    console.log("Destination table created successfully");
+  } catch (error) {
+    console.error("Error syncing Destination model:", error);
+  }
+})();
   
   module.exports = Destination;

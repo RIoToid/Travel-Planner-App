@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('@sequelize/core');
 const sequelize = require('../db');
 
-const Trip = require("./trip");
+const TripDestination = require("./tripDestination");
 
 // Accommodation model
 const Accommodation = sequelize.define('Accommodation', {
@@ -10,11 +10,11 @@ const Accommodation = sequelize.define('Accommodation', {
       primaryKey: true,
       autoIncrement: true
     },
-    tripId: {
+    tripDestinationId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: Trip,
+        model: TripDestination,
         key: 'id'
       }
     },

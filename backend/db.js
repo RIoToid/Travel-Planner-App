@@ -11,7 +11,7 @@ const sequelize = new Sequelize({
   password: process.env.DB_PASSWORD,
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
-  ssl: true,
+  ssl: false, // The local server does not support SSL Connections error
   clientMinMessages: 'notice',
 });
 
@@ -25,6 +25,6 @@ const sequelize = new Sequelize({
 //       }
 // }
 
-test()
+//test()
 
 module.exports = sequelize;
