@@ -1,4 +1,4 @@
-# My Travel App
+# My Travel Planner App - Frontend
 
 This project was bootstrapped with [Vite](https://vitejs.dev/).
 
@@ -12,11 +12,6 @@ This project was bootstrapped with [Vite](https://vitejs.dev/).
 This is a modern React application built using Vite, a fast and efficient build tool that leverages native ES modules and offers lightning-fast Hot Module Replacement (HMR).
 
 ## Features
-
-- **Fast Development**: Instant feedback with HMR and fast builds.
-- **Modern JavaScript**: Support for ES6+ features.
-- **React**: A powerful JavaScript library for building user interfaces.
-- **Vite**: A modern build tool that is significantly faster than traditional tools.
 
 ## Getting Started
 
