@@ -44,7 +44,7 @@ To get started with this project, follow these steps:
 
 4. **Configure environment variables**:
 
-   Create a .env file in the root of the project and add the following variables:
+   Create a .env file in the root of the project and add the following variables (found in the [.env.example](../.env.example) file):
    DB_HOST=localhost
    DB_USER=your_db_user
    DB_PASSWORD=your_db_password
@@ -52,9 +52,10 @@ To get started with this project, follow these steps:
    DB_PORT=5432
    EXPRESS_SERVER_PORT=3000
 
-5. **Start the development server**:
+5. **Start the server**:
 
-   node server.js
+   - To start the server in production mode, run: npm start
+   - To start the server in development mode (with nodemon for auto-restarting), run: npm run dev
 
 ## Environment Variables
 
