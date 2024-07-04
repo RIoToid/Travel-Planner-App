@@ -51,6 +51,8 @@ To get started with this project, follow these steps:
    DB_NAME=your_db_name
    DB_PORT=5432
    EXPRESS_SERVER_PORT=3000
+   ACCESS_TOKEN_SECRET=your_access_token
+   REFRESH_TOKEN_SECRET=your_refresh_token
 
 5. **Start the server**:
 
@@ -67,6 +69,8 @@ The application uses the following environment variables, which should be define
 - DB_NAME: The name of the PostgreSQL database.
 - DB_PORT: The port number of the PostgreSQL database (default: 5432).
 - EXPRESS_SERVER_PORT: The port number of the express API server.
+- ACCESS_TOKEN_SECRET: Token secret to sign and verify Access JWTs
+- REFRESH_TOKEN_SECRET: Token secret to sign and verify Refresh JWTs
 
 ## DB ERD
 
