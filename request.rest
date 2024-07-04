@@ -1,0 +1,31 @@
+GET http://localhost:3000/api/users
+
+###
+
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "username": "test4",
+    "email": "test4@gmail.com",
+    "password": "password"
+}
+
+###
+
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "username": "test3",
+    "password": "password"
+}
+
+###
+
+POST http://localhost:3000/token/refresh-token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0MyIsImlhdCI6MTcyMDA4NTU2OSwiZXhwIjoxNzIwNjkwMzY5fQ.iu5GSmmbeV04VCkjtoVR3KIMTDXxS6J248REaB24smY"
+}
