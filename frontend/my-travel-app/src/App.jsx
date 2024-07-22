@@ -1,25 +1,26 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import "./App.css";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
-  const [data, setData] = useState([]);
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import Home from "./pages/Home/Home";
+import PrivateRoute from "./components/Authentication/PrivateRoute";
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:3000/')
-      .then(response => response.json())
-      .then(data => { setData(data); console.log(data)});
-  }, []);
+const App = () => {
 
-  return (
-    <div>
-      {data.map(user => (
-        <div key={user.id}>
-          <h2>{user.username}</h2>
-          <p>{user.email}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-export default App;
+    return (
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/" element={
+                  <PrivateRoute>
+                      <Home />
+                  </PrivateRoute>
+              }/>
+        </Routes>
+      </Router>
+    );
+  }
+  
+  export default App;
