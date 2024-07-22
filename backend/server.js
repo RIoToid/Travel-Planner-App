@@ -3,6 +3,7 @@ const sequelize = require('./db');
 const tripRouter = require('./routes/trips'); // Import trip routes (explained later)
 const userRouter = require('./routes/users'); 
 const tokenRoutes = require('./routes/token');
+const authenticateJWT = require("./middleware/auth")
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -16,7 +17,10 @@ require("dotenv").config();
 const app = express();
 
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true // Allow credentials (cookies, headers) to be sent
+}));
 app.use(bodyParser.json()); // Parse incoming JSON data
 
 // Connect to database (consider error handling)
@@ -31,7 +35,7 @@ sequelize.sync().then(() => {
 });
 
 // API routes (handled in separate files)
-app.use('/api/trips', tripRouter); // Mount trip routes under /api/trips
+app.use('/api/trips', authenticateJWT, tripRouter); // Mount trip routes under /api/trips
 app.use('/api/users', userRouter);
 app.use('/token', tokenRoutes); // refresh token
 

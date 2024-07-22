@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a new user (POST /api/users) // Register
-router.post('/', async (req, res) => {
+// Create a new user (POST /api/users/register) // Register
+router.post('/register', async (req, res) => {
   const { username, email, password } = req.body; // Assuming data comes from request body
   try {
     // Hash the password before storing it in the db using bcrypt hash and salt = 10
@@ -57,6 +57,12 @@ router.post("/login", async (req, res) => {
 
       const accessToken = generateAccessToken(user);
       const refreshToken = generateRefreshToken(user);
+
+      res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+        secure: false, // Use true if serving over HTTPS
+        sameSite: 'Strict', // Adjust based on your requirements
+      });
 
       return res.json({ accessToken, refreshToken });
       
